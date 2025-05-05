@@ -21,7 +21,7 @@ It is useful for ensuring consistent display, layout uniformity, or preparing do
 Clone the repository and install the required dependency:
 
 ```bash
-git clone https://github.com/yourusername/SmartPDFNormalizer.git
+git clone https://github.com/loglux/SmartPDFNormalizer.git
 cd SmartPDFNormalizer
 pip install -r requirements.txt
 ```
