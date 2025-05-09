@@ -1,3 +1,4 @@
+#pdf2norm.py
 import json
 import fitz
 import argparse
@@ -86,10 +87,10 @@ class SmartPDFNormalizer:
 
     def _save_report_txt(self):
         with open(self.report_txt, "w", encoding="utf-8") as f:
-            f.write("Отчёт по изменениям:\n\n")
+            f.write("Report of changes:\n\n")
             for entry in self.report:
                 f.write(
-                    f"Страница {entry['page']:>3}: "
+                    f"Page {entry['page']:>3}: "
                     f"{entry['original_width']} x {entry['original_height']} → {entry['status']}\n"
                 )
 
@@ -120,5 +121,7 @@ def main():
     normalizer.normalize()
 
 
-main()
+if __name__ == "__main__":
+    main()
+
 

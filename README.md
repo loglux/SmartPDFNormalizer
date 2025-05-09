@@ -3,6 +3,10 @@
 **SmartPDFNormalizer** is a command-line utility that normalises PDF page sizes to a unified format and optionally inserts a blank page at a specific position.  
 It is useful for ensuring consistent display, layout uniformity, or preparing documents for print or automated processing.
 
+---
+![GUI screenshot](screenshots/gui.png)
+---
+
 ## Features
 
 - Detects the most common page dimensions across the document (mode).
@@ -10,11 +14,13 @@ It is useful for ensuring consistent display, layout uniformity, or preparing do
 - Rescales all pages to the average dimensions.
 - Optionally inserts a blank page at a given position.
 - Generates a report of all page transformations in both `.txt` and `.json` formats.
+- Offers a simple **Gradio-based GUI**.
 
 ## Requirements
 
 - Python 3.7+
 - [PyMuPDF](https://pymupdf.readthedocs.io/en/latest/) (`pip install pymupdf`)
+- [Gradio](https://gradio.app/) for the optional graphical interface (`pip install gradio`)
 
 ## Installation
 
@@ -29,6 +35,7 @@ pip install -r requirements.txt
 `requirements.txt`:
 ```
 pymupdf
+gradio
 ```
 
 ## Usage
@@ -59,6 +66,22 @@ This command will:
 - Resize all pages to that average size.
 - Insert a blank page as the new third page.
 - Save transformation details to `summary.txt` and `summary.json`.
+
+---
+## Usage (GUI)
+
+To launch the graphical interface:
+
+```bash
+python gui.py
+```
+
+- Upload your PDF.
+- Specify the optional blank page position.
+- Click **"Normalise PDF"** to generate the output and download files.
+
+The GUI is built with [Gradio](https://gradio.app/) and runs in your browser at `http://127.0.0.1:7860`.
+---
 
 ## Output
 
