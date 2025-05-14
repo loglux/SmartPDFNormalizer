@@ -94,6 +94,18 @@ The GUI is built with [Gradio](https://gradio.app/) and runs in your browser at 
 - The tool currently assumes that most pages are of the desired size and filters out outliers like covers or inserts based on similarity to the mode.
 - Pages with drastically different sizes (e.g. scanned covers or inserts) will be forcefully rescaled unless filtered beforehand.
 
+## Design Philosophy
+
+SmartPDFNormalizer was created to solve a practical, real-world problem: long PDFs with inconsistent page sizes that disrupt the reading experience or cause layout issues when printing.
+
+Instead of preserving the exact geometry of each page (which is important in archival contexts), the tool focuses on **visual consistency**. It detects the dominant page size, calculates an average from similar sizes, and resizes the rest — even if it introduces minor aspect ratio changes. This trade-off is intentional, as it results in cleaner, more uniform documents for everyday use.
+
+Another key feature is the **optional insertion of a blank page**. This is not just for appearance — it ensures that pages stay correctly paired in two-page spreads, especially during double-sided printing or digital reading. Without it, one missing page (often a front cover) can throw off the entire sequence.
+
+The goal is usability, not archival fidelity. If your priority is faithful preservation of original page proportions or content zones, cropping tools or layout-aware solutions may be more appropriate.
+
+As a related experiment, I once created [remove_black_borders](https://github.com/loglux/remove_black_borders), a script to crop excess margins (usually black bars) from **images**, mostly screenshots taken from restricted online book viewers. That tool served a different purpose and was built for a different context.
+
 ## License
 
 This project is licensed under the MIT Licence. See the [LICENSE](LICENSE) file for details.
